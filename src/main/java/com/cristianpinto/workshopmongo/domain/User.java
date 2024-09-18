@@ -3,23 +3,28 @@ package com.cristianpinto.workshopmongo.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="user")// anotação para conectar ao MongoDB
 public class User implements Serializable{
 
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Id
 	private String id;
-	private String user;
+	private String email;
 	private String name;
 	
 	public User() {
 		
 	}
 
-	public User(String id, String user, String name) {
+	public User(String id, String email, String name) {
 		super();
 		this.id = id;
-		this.user = user;
+		this.email = email;
 		this.name = name;
 	}
 
@@ -31,12 +36,12 @@ public class User implements Serializable{
 		this.id = id;
 	}
 
-	public String getUser() {
-		return user;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUser(String user) {
-		this.user = user;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getName() {
@@ -63,6 +68,6 @@ public class User implements Serializable{
 		User other = (User) obj;
 		return Objects.equals(id, other.id);
 	}
+
 	
-	
-}  
+}
