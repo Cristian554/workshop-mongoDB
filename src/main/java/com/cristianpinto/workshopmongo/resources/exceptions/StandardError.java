@@ -2,7 +2,7 @@ package com.cristianpinto.workshopmongo.resources.exceptions;
 
 import java.io.Serializable;
 
-public class StandartError implements Serializable {	
+public class StandardError implements Serializable {	
 	private static final long serialVersionUID = 1L;
 	
 	private Long timestamp;
@@ -11,13 +11,10 @@ public class StandartError implements Serializable {
 	private String message;
 	private String path;
 
-	public StandartError() {
-		
-		
-		
+	public StandardError() {		
 	}
 
-	public StandartError(Long timestamp, Integer status, String error, String message, String path) {
+	public StandardError(Long timestamp, Integer status, String error, String message, String path) {
 		super();
 		this.timestamp = timestamp;
 		this.status = status;

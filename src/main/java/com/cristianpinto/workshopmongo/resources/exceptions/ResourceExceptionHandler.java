@@ -9,17 +9,14 @@ import com.cristianpinto.workshopmongo.services.exception.ObjectNotFoundExceptio
 
 import jakarta.servlet.http.HttpServletRequest;
 
-@ControllerAdvice // Trata possiveis erros nas aquisições
+@ControllerAdvice
 public class ResourceExceptionHandler {
 
-	@ExceptionHandler(ObjectNotFoundException.class) // Padrão do sistema para ativar a excessão personalizada
-	public ResponseEntity<StandartError> objectNotFound(ObjectNotFoundException e, HttpServletRequest request) {
-
-		HttpStatus status = HttpStatus.NOT_FOUND;
-		StandartError err = new StandartError(System.currentTimeMillis(), status.value(), "Não Encontrado",
-				e.getMessage(), request.getRequestURI());// CurrentTime = Instante atual do Systema //Status.value =
-		return ResponseEntity.status(status).body(err);											// converte em inteiro
+	@ExceptionHandler(ObjectNotFoundException.class)
+	public ResponseEntity<StandardError> objectNotFound(ObjectNotFoundException e, HttpServletRequest request) {
 		
+		HttpStatus status = HttpStatus.NOT_FOUND;
+		StandardError err = new StandardError(System.currentTimeMillis(), status.value(), "Não encontrado", e.getMessage(), request.getRequestURI());
+		return ResponseEntity.status(status).body(err);
 	}
-
 }
