@@ -1,7 +1,7 @@
 package com.cristianpinto.workshopmongo.domain;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Objects;
@@ -18,7 +18,7 @@ public class Post implements Serializable {
 	
 	@Id
 	private String id;
-	private java.util.Date date;
+	private Date date;
 	private String title;
 	private String body;
 	private AuthorDTO author;
