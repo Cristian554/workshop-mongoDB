@@ -17,8 +17,8 @@ public class User implements Serializable{
 	
 	@Id
 	private String id;
-	private String email;
 	private String name;
+	private String email;
 	
 	@DBRef(lazy = true) // Os post só serão recarregados se for solicitado
 	private List<Post> posts = new ArrayList<>();
